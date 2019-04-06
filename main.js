@@ -1,28 +1,26 @@
-let colors = [
-  '#ef9a9a', //vermelho
-  '#f06292', //rosa
-  '#e1bee7', //roxo
-  '#7986cb', //azul escuro
-  '#81d4fa', //azul claro
-  '#4db6ac', //verde escuro
-  '#aed581', //verde
-  '#ffd54f', //amarelo
-  '#ff8a65' //laranja
-];
-console.log(colors);
-let selectedColors = [rand(0,8), rand(0,8), rand(0,8)];
-console.log(selectedColors);
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+
+
 let item1 = document.querySelectorAll('.cls-5');
 console.log(item1);
 item1.forEach(function(item){
-  item.style.fill = colors[selectedColors[0]];
+  item.style.fill = "#"+getParameterByName('cor1');
   // console.log(item);
 });
 
 let item2 = document.querySelectorAll('.cls-6');
 console.log(item2);
 item2.forEach(function(item){
-  item.style.fill = colors[selectedColors[1]];
+  item.style.fill = "#"+getParameterByName('cor2');
   // console.log(item);
 });
 
@@ -33,12 +31,12 @@ item2.forEach(function(item){
 //   // console.log(item);
 // });
 
-let item4 = document.querySelectorAll('.cls-4');
-console.log(item4);
-item4.forEach(function(item){
-  item.style.fill = colors[selectedColors[2]];
-  // console.log(item);
-});
+// let item4 = document.querySelectorAll('.cls-4');
+// console.log(item4);
+// item4.forEach(function(item){
+//   item.style.fill = colors[selectedColors[2]];
+//   // console.log(item);
+// });
 
 
 function rand(min, max) {
@@ -47,4 +45,7 @@ function rand(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-window.print();
+document.querySelector('body').innerHTML(getParameterByName('cor1'));
+document.querySelector('body').innerHTML(getParameterByName('cor2'));
+
+//window.print();

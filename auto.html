@@ -9,27 +9,30 @@
 <body>
   <script type="text/javascript">
     var a, i, j, x = [
-      '#ef9a9a', //vermelho
-      '#f06292', //rosa
-      '#e1bee7', //roxo
-      '#7986cb', //azul escuro
-      '#81d4fa', //azul claro
-      '#4db6ac', //verde escuro
-      '#aed581', //verde
-      '#ffd54f', //amarelo
-      '#ff8a65' //laranja
+      'ef9a9a', //vermelho
+      'f06292', //rosa
+      'e1bee7', //roxo
+      '7986cb', //azul escuro
+      '81d4fa', //azul claro
+      '4db6ac', //verde escuro
+      'aed581', //verde
+      'ffd54f', //amarelo
+      'ff8a65' //laranja
       ],
         combinations = [];
-      for(a = 0; a < x.length; ++a) {
+      //for(a = 0; a < x.length; ++a) {
         for(i = 0; i < x.length; ++i) {
             for(j = i + 1; j < x.length; ++j) {
 
-              combinations.push([ x[i], x[j], x[a] ]);
+              combinations.push([ x[i], x[j] ]);
             }
         }
-      }
+      //}
       console.log(combinations);
-      //window.open("file:///C:/Users/Hendy/Downloads/recoelhosirmosimagemvetorizada/teste.html", "_blank", 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=600,height=800,left = 650,top = 250');
+
+      for (let index = 0; index < 3; index++) {
+        window.open("teste.html?cor1="+combinations[index][0]+"&cor2="+combinations[index][1], "_blank", 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=600,height=800,left = 650,top = 250');
+      }
 
   </script>
 </body>
